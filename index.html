@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowchart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+    }
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    .step {
+      background: white;
+      border: 2px solid #333;
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+      max-width: 500px;
+      text-align: center;
+    }
+    .arrow {
+      margin: 10px 0;
+      font-size: 24px;
+    }
+    .split {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      width: 100%;
+    }
+    .branch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h2>User Flow</h2>
+  <div class="flowchart">
+    
+    <div class="step">
+      Step 1: The user enters their address in the form and then clicks  
+      <strong>“Register and verify my phone number.”</strong>
+    </div>
+    <div class="arrow">⬇️</div>
+    
+    <div class="step">
+      Step 2: If the system detects that the phone number is linked to an active subscription,  
+      it displays a masked email and offers to  
+      <strong>send a login link</strong> or <strong>use another phone number.</strong>
+    </div>
+    <div class="arrow">⬇️</div>
+    
+    <div class="split">
+      <div class="branch">
+        <div class="step">
+          Step 3.1: (When the customer clicks <strong>“Send login link”</strong>),  
+          a one-time login link is sent to the masked email shown on their screen,  
+          allowing them to log back into their existing account.
+          <br><br>
+          If they can’t find the login link, ask them to check their  
+          <strong>Spam or Promotions</strong> folder or use the option to resend the link.
+        </div>
+      </div>
+      
+      <div class="branch">
+        <div class="step">
+          Step 3.2: (When the customer clicks <strong>“Use a different number”</strong>),  
+          the customer enters a new phone number, and an OTP is sent to that number  
+          to continue the checkout process.
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</body>
+</html>
