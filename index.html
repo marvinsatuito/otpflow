@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Process Flow with Dropdown</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+    }
+    .flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    .step {
+      background: #fff;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 15px 20px;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .details {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #333;
+    }
+    select {
+      margin-top: 10px;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>New Phone Verification Sign-Up Process</h2>
+  <div class="flow">
+    
+    <div class="step">
+      <strong>Step 1</strong>
+      <div class="details">
+        The user enters their address in the form and then clicks  
+        <br><strong>“Register and verify my phone number”</strong>.
+      </div>
+    </div>
+
+    <div class="step">
+      <strong>Step 2</strong>
+      <div class="details">
+        If the system detects that the phone number is linked to an active subscription,  
+        it displays a masked email and offers two options:  
+        <br>
+        <select id="step2Choice" onchange="showStep3()">
+          <option value="">-- Select an option --</option>
+          <option value="login">Send a login link</option>
+          <option value="number">Use a different number</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="step3Login" class="step hidden">
+      <strong>Step 3</strong>
+      <div class="details">
+        When the customer clicks <strong>“Send login link”</strong>, a login link is sent  
+        to the masked email shown on their screen, allowing them to log back into their existing account.  
+        <br><br>
+        If they can’t find it, ask the customer to check their email's <strong>Spam or Promotions</strong> folder,  
+        or click the <strong>"Resend link"</strong> button to receive another login link via email.
+      </div>
+    </div>
+
+    <div id="step3Number" class="step hidden">
+      <strong>Step 3</strong>
+      <div class="details">
+        When the customer clicks <strong>“Use a different number”</strong>,  
+        they will enter a new phone number, receive an OTP for verification, and proceed with the checkout process.
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function showStep3() {
+      const choice = document.getElementById('step2Choice').value;
+      document.getElementById('step3Login').classList.add('hidden');
+      document.getElementById('step3Number').classList.add('hidden');
+      
+      if (choice === 'login') {
+        document.getElementById('step3Login').classList.remove('hidden');
+      } else if (choice === 'number') {
+        document.getElementById('step3Number').classList.remove('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
