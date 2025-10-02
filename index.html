@@ -33,7 +33,7 @@
       margin-top: 10px;
       font-size: 15px;
       color: #333;
-      text-align: center; /* centers text and image */
+      text-align: center;
     }
     /* Style the dropdown in step 2 */
     #step2Choice {
@@ -118,6 +118,7 @@
   </div>
 
   <script>
+    // Show step 3 logic
     function showStep3() {
       const choice = document.getElementById('step2Choice').value;
       document.getElementById('step3Login').classList.add('hidden');
@@ -128,7 +129,18 @@
       } else if (choice === 'number') {
         document.getElementById('step3Number').classList.remove('hidden');
       }
+
+      sendHeight(); // update height when dropdown changes
     }
+
+    // Send height to parent window
+    function sendHeight() {
+      const height = document.body.scrollHeight;
+      window.parent.postMessage({ iframeHeight: height }, "*");
+    }
+
+    window.onload = sendHeight;
+    window.onresize = sendHeight;
   </script>
 </body>
 </html>
