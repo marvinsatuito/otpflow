@@ -35,11 +35,26 @@
       color: #333;
       text-align: center; /* centers text and image */
     }
-    select {
-      margin-top: 10px;
-      padding: 5px;
-      border-radius: 5px;
-      border: 1px solid #aaa;
+    /* Style the dropdown in step 2 */
+    #step2Choice {
+      margin-top: 15px;
+      padding: 12px 15px;
+      border-radius: 8px;
+      border: 2px solid #0073e6;
+      font-size: 18px;
+      font-weight: bold;
+      width: 80%;
+      max-width: 350px;
+      background-color: #fdfdfd;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      transition: all 0.2s ease-in-out;
+    }
+    #step2Choice:hover, 
+    #step2Choice:focus {
+      border-color: #005bb5;
+      background-color: #eef6ff;
+      outline: none;
     }
     .hidden {
       display: none;
@@ -60,8 +75,7 @@
         The customer enters their address and phone number in the form and then click the  
         <br><strong>“Register and verify my phone number”</strong>.
         <br>
-        <img src="https://i.imgur.com/uBdC8J0.png" 
-            >
+        <img src="https://i.imgur.com/uBdC8J0.png">
       </div>
     </div>
 
@@ -71,8 +85,7 @@
         If the system detects that the phone number is linked to an active subscription,  
         it displays a masked email and offers two options:  
         <br>
-         <img src="https://i.imgur.com/z5yGFYn.png" 
-            >
+         <img src="https://i.imgur.com/z5yGFYn.png">
         <br>
         <select id="step2Choice" onchange="showStep3()">
           <option value="">-- Select an option --</option>
@@ -87,8 +100,7 @@
       <div class="details">
         When the customer clicks <strong>“Send login link”</strong>, a login link is sent  
         to the masked email shown on their screen, allowing them to log back into their existing account.  
-        <br><img src="https://i.imgur.com/nxkhZ6d.png" 
-            >
+        <br><img src="https://i.imgur.com/nxkhZ6d.png">
         <br>
         If they can’t find it, ask the customer to check their email's <strong>Spam or Promotions</strong> folder,  
         or click the <strong>"Resend link"</strong> button to receive another login link via email.
@@ -120,8 +132,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
